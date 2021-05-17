@@ -44,7 +44,7 @@ module.exports = function (app, requiresAuth , p) {
     readImages();
     imagesPath = p;
 
-    app.get('/uploadimage/', function (req, res) {
+    app.get('/api/upload',requiresAuth(), function (req, res) {
         res.sendFile(__dirname + '/upload.html');
 
     });

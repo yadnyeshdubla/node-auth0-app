@@ -8,7 +8,7 @@ module.exports = function (app, requiresAuth) {
     app.get("/", (req, res) => {
         res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
     });
-    app.get('/auth/login',requiresAuth(), (req, res) => res.oidc.login({ returnTo: '/api/me' }));
+    app.get('/auth/login',requiresAuth(), (req, res) => {res.oidc.login({ returnTo: '/api/me' })});
     app.get("/api/me", requiresAuth(), (req, res) => {
      
         let user = (req.oidc.user);
